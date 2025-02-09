@@ -14,7 +14,7 @@ import "package:proper_filesize/src/unit.dart";
 ///
 /// The class also provides a method for generating human-readable string
 /// representations of file sizes.
-final class FileSize {
+base class FileSize {
   /// Creates a [FileSize] object from a [size] in bytes.
   FileSize.fromBytes(
     this.size,
@@ -63,6 +63,8 @@ final class FileSize {
     Unit? unit,
     final FormatType formatType = FormatType.short,
     final int decimals = 3,
+    final String Function(num value, int decimals) formatter =
+        _defaultFormatter,
   }) {
     unit ??= Unit.auto(
       size: size,
@@ -98,3 +100,8 @@ extension _StringX on String {
             1,
       );
 }
+
+String _defaultFormatter(final num value, final int decimals) =>
+    ((value % 1 == 0)
+        ? value.toInt().toString()
+        : value.toStringAsFixed(decimals));
