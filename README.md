@@ -1,4 +1,5 @@
 [![pub package](https://img.shields.io/pub/v/proper_filesize.svg)](https://pub.dev/packages/proper_filesize)
+[![tests](https://github.com/gilnobrega/proper_filesize/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/gilnobrega/proper_filesize/actions/workflows/tests.yml)
 [![license](https://img.shields.io/github/license/gilnobrega/proper_filesize)](https://github.com/gilnobrega/proper_filesize/blob/main/LICENSE)
 [![code style: lints](https://img.shields.io/badge/style-%2F%2F%20lints-40c4ff.svg)](https://pub.dev/packages/lints)
 

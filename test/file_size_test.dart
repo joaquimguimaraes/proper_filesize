@@ -4,8 +4,9 @@ import "package:test/test.dart";
 void main() {
   group("FileSize.parse()", () {
     test('''
-        SHOULD return 1000 bytes 
-        WHEN input is "1 KB"
+        GIVEN the input is "1 KB"
+        WHEN the file size is parsed
+        THEN the result should be 1000 bytes
         ''', () {
       // Arrange
       const String fileSize = "1 KB";
@@ -18,8 +19,9 @@ void main() {
     });
 
     test('''
-        SHOULD return 1024 bytes 
-        WHEN input is "1 KiB"
+        GIVEN the input is "1 KiB"
+        WHEN the file size is parsed
+        THEN the result should be 1024 bytes
         ''', () {
       // Arrange
       const String fileSize = "1 KiB";
@@ -32,8 +34,9 @@ void main() {
     });
 
     test('''
-        SHOULD return 1383505805528216320 bytes 
-        WHEN input is "1.2 EiB"
+        GIVEN the input is "1.2 EiB"
+        WHEN the file size is parsed
+        THEN the result should be 1383505805528216320 bytes
         ''', () {
       // Arrange
       const String fileSize = "1.2 EiB";
@@ -46,8 +49,9 @@ void main() {
     });
 
     test('''
-        SHOULD return 1556925644 bytes 
-        WHEN input is "1.45 gibibytes"
+        GIVEN the input is "1.45 gibibytes"
+        WHEN the file size is parsed
+        THEN the result should be 1556925644 bytes
         ''', () {
       // Arrange
       const String fileSize = "1.45 gibibytes";
@@ -62,8 +66,9 @@ void main() {
 
   group("FileSize.toString()", () {
     test('''
-        SHOULD return "1000 B" 
-        WHEN filesize is 1000 bytes
+        GIVEN the file size is 1000 bytes
+        WHEN converting to string using default settings
+        THEN the result should be "1000 B"
         ''', () {
       // Arrange
       const int bytes = 1000;
@@ -76,8 +81,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "1 KiB" 
-        WHEN filesize is 1024 bytes
+        GIVEN the file size is 1024 bytes
+        WHEN converting to string using default binary units
+        THEN the result should be "1 KiB"
         ''', () {
       // Arrange
       const int bytes = 1024;
@@ -90,8 +96,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "1.158 GiB" 
-        WHEN filesize is 1243560000 bytes
+        GIVEN the file size is 1243560000 bytes
+        WHEN converting to string using default settings
+        THEN the result should be "1.158 GiB"
         ''', () {
       // Arrange
       const int bytes = 1243560000;
@@ -104,8 +111,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "1.244 GB" 
-        WHEN filesize is 1243560000 bytes and unit is metric
+        GIVEN the file size is 1243560000 bytes and metric unit is selected
+        WHEN converting to string
+        THEN the result should be "1.244 GB"
         ''', () {
       // Arrange
       const int bytes = 1243560000;
@@ -120,8 +128,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "1.16 GiB" 
-        WHEN filesize is 1243560000 bytes and decimals are 2
+        GIVEN the file size is 1243560000 bytes and decimals are set to 2
+        WHEN converting to string
+        THEN the result should be "1.16 GiB"
         ''', () {
       // Arrange
       const int bytes = 1243560000;
@@ -134,8 +143,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "1 kilobyte" 
-        WHEN filesize is 1000 bytes and formatType is long
+        GIVEN the file size is 1000 bytes and long format is selected with metric unit
+        WHEN converting to string
+        THEN the result should be "1 kilobyte"
         ''', () {
       // Arrange
       const int bytes = 1000;
@@ -151,8 +161,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "5 megabytes" 
-        WHEN filesize is 5000000 bytes and formatType is long
+        GIVEN the file size is 5000000 bytes and long format is selected with metric unit
+        WHEN converting to string
+        THEN the result should be "5 megabytes"
         ''', () {
       // Arrange
       const int bytes = 5000000;
@@ -168,8 +179,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "1 kibibyte" 
-        WHEN filesize is 1024 bytes and formatType is long
+        GIVEN the file size is 1024 bytes and long format is selected with binary unit
+        WHEN converting to string
+        THEN the result should be "1 kibibyte"
         ''', () {
       // Arrange
       const int bytes = 1024;
@@ -185,8 +197,9 @@ void main() {
     });
 
     test('''
-        SHOULD return "0.244 GB" 
-        WHEN filesize is 243560000 bytes and unit is gigabyte
+        GIVEN the file size is 243560000 bytes and gigabyte unit is selected
+        WHEN converting to string
+        THEN the result should be "0.244 GB"
         ''', () {
       // Arrange
       const int bytes = 243560000;
@@ -202,8 +215,9 @@ void main() {
 
   group("FileSize.toSize()", () {
     test("""
-        SHOULD return 382671.3562011719 
-        WHEN converting 401.26 gigabytes to mebibytes
+        GIVEN the size is 401.26 gigabytes
+        WHEN converting the size to mebibytes
+        THEN the result should be 382671.3562011719
         """, () {
       // Arrange
       const num gigabytes = 401.26;
